@@ -16,3 +16,5 @@ To connect to the SQL Database:
   2. Under "Admit Mode" hit "open".
   3. Click "Connect to Database" to create a table and load all the courses from the textfile onto it.
   4. You can then add/remove courses in the database by clicking Maintain List of Courses and the "Add Course" and "Remove Course" options will appear.
+
+The "Checklist PDF" has all the learning outcomes I had while doing this project. Such as learning about inheritance, listeners. etc. and where I applied the concepts in my code. 
