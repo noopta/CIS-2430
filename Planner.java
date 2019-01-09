@@ -7,14 +7,13 @@ import java.util.ArrayList;
 import java.sql.*;
 
 /**
- * Write a description of class PlannerGUI here.
- *
- * @author (your name)
- * @version (a version number or a date)
+Anupta Islam 
+anupta@uoguelph.ca
+CIS 2430 A2 
+Student Planner 
  */
 public class Planner 
 {
-    // instance variables - replace the example below with your own
     
     /*variable declerations*/
     MyConnection connect;
@@ -49,8 +48,7 @@ public class Planner
     public Planner()
     {
         // initialise instance variables
-        
-        
+                
         JFrame maintainCourse = new JFrame("Maintain Courses");
         JFrame addCDB = new JFrame("Add a Course");
         JFrame removeCDB = new JFrame("Remove a Course");
@@ -104,8 +102,7 @@ public class Planner
         
         JPanel cdbPanel = new JPanel();
         cdbPanel.setBackground(Color.WHITE);
-        cdbPanel.setLayout(null);
-        
+        cdbPanel.setLayout(null);        
         
         /*j frame for adding a course to database below*/
         
@@ -199,9 +196,7 @@ public class Planner
      public void actionPerformed(ActionEvent e)
       {
     // display/center the jdialog when the button is pressed
-    
-    
-    
+        
     id = studentNum.getText();
     if(id.isEmpty()){
     box.showMessageDialog(null,"Enter a student number","Title",1);
@@ -212,7 +207,9 @@ public class Planner
     frame.setVisible(true);
     }
     
-    
+    /**below is a connection test, if the connection to the database is 
+       null then print out that it is null. If it has a connection and 
+       is not null then print that it is working*/
     connect = new MyConnection(firstName,id); 
     if(connect != null){
          System.out.println("actionPerformed(): connect = null");
@@ -221,40 +218,23 @@ public class Planner
     }else{
         System.out.println("actionPerformed(): connect != null");
     }
-    
-    
+
     
    }
   }); 
         
         JPanel first = new JPanel();
         first.setBackground(Color.WHITE);
-        
-        
-        
-        
+
         JLabel name = new JLabel("Username");
                                 
-        JTextField fName = new JTextField();
-        
-        //JTextField lName = new JTextField();
+        JTextField fName = new JTextField();       
         
         JButton loginButton = new JButton("Submit");
-        
-        
-       
-        
-        
-        
-          //name.setBounds(100, 30, 400, 30);
+
           name.setBounds(50, 40, 200, 30);
-          
-          //last.setBounds(50, 80, 200, 30);
-          
-         
-          
+                    
           fName.setBounds(120, 40, 200, 30);
-         // lName.setBounds(120, 80, 200, 30);
          
           loginButton.setBounds(150, 100, 100, 30);
           
@@ -339,8 +319,7 @@ public class Planner
    {
     // display/center the jdialog when the button is pressed
     firstName = fName.getText();
-    //String lastName = lName.getText();
-    //String id = studentNum.getText();
+    
     if(firstName.isEmpty()){
     login.setVisible(true);
     idFrame.setVisible(false);
@@ -382,26 +361,11 @@ public class Planner
     // display/center the jdialog when the button is pressed
     System.out.println("actionPerformed(): firsName = " + firstName + " id = " + id);
     MyConnection c = new MyConnection(firstName, id);
-    /*ArrayList<String> s = c.getAllCourses();
-    for(String a : s){
-        System.out.println(a);
-    }*/
+    
     
     /*connect to database*/
     PrepStudentScript initTables = new PrepStudentScript(fullyResetTables);
-    c.repopulateCourses();
-    /*
-    ArrayList<String> cl = new ArrayList<String>();
-    cl.add("CIS*3530,0.5,Data Base Systems and Concepts,F,CIS*2520");
-    cl.add("CIS*2520,0.5,Data Structures,F,CIS*2500");
-    cl.add("CIS*1500,0.5,87,Intro to Programming,B,");
-    cl.add("CIS*1250,0.5,P,Design,B");
-    
-    DBStudent s1 = new DBStudent("1014181","James","CS",cl);
-    c.saveStudent(s1);
-    
-    ArrayList<String> coursesFromDB = c.getAllCourses();
-    */
+    c.repopulateCourses();  
    
    }
   });
@@ -410,9 +374,7 @@ public class Planner
         {
   public void actionPerformed(ActionEvent e)
    {
-    
-   
-   maintainCourse.setVisible(true);
+          maintainCourse.setVisible(true);
    }
   });
         
@@ -425,32 +387,9 @@ public class Planner
         adminP.add(option3);
         
         adminP.setBackground(Color.WHITE);
-        
-        
-        
-       /* changeSubmit.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-    
-                   
-       }
-        });*/
-        
-        
-        /*       
-        JButton aC = new JButton("Add Course");
-        JButton rC = new JButton("Remove Course");
-        JButton cC = new JButton("Change Course");
-        */
-        
-       
-       
+                                      
        JPanel maintainC1 = new JPanel(); 
-       
-        
-       
-        
+                              
        JButton submitRemove = new JButton("Remove Course");
        submitRemove.addActionListener(new ActionListener()
         {
@@ -486,19 +425,7 @@ public class Planner
        maintainCourse.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        maintainCourse.setVisible(false);
        maintainCourse.setLocationRelativeTo(null);
-        //String addT = newText.getText();
-        
-        
-        
-        
-        
-        /*
-        adminChange.setSize(350,200);
-        adminChange.getContentPane().add(maintainC1);
-        adminChange.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        adminChange.setVisible(false);
-        adminChange.setLocationRelativeTo(null);
-        */
+
         am.setSize(450,250);
         am.getContentPane().add(adminP);
         am.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -591,18 +518,13 @@ public class Planner
   });
         
         degPanel.add(choiceButton,c);
-        
-                               
+                                       
         JLabel degLabel = new JLabel("Choose Your Degree");  
         degLabel.setFont(new Font("SansSerif", Font.BOLD,18));
         c.gridx= 0;
         c.gridy =0;
         
-        
-        
-        //output.setText("Degree: Major: ");
-        
-        
+
         degPanel.add(degLabel,c);
         
         degPanel.setBackground(Color.WHITE);
@@ -670,8 +592,7 @@ public class Planner
         String[] options = {"Select Option", "Select Degree", "Add Course to POS","Remove Course from POS","Maintain Courses in transcript",
             "Save program"};
             
-        c.insets = new Insets(40,10,10,10);
-            
+        c.insets = new Insets(40,10,10,10);            
         
         JComboBox menu = new JComboBox(options);        
         c.gridx = 1;
@@ -681,29 +602,23 @@ public class Planner
         
             public void actionPerformed(ActionEvent e){
             String s = (String) menu.getSelectedItem();
-            
-            
-            
+                                    
             switch(s){
             case "Select Degree":
             deg.setVisible(true);  
-            
-            
-            
+                                    
             deg.addWindowListener(new WindowAdapter()
         {
             @Override
             public void windowClosing(WindowEvent e)
             {
-                
-                
+                               
                 e.getWindow().dispose();
                 
             }
             
         });
-            
-            
+                        
             break;
             
             case "Add Course to POS":            
@@ -740,11 +655,7 @@ public class Planner
         c.gridy =2;
         label2.setFont(new Font("SansSerif", Font.PLAIN,24));
         main.add(label2,c);
-        
-        
-   
-        
-        
+                                   
         JLabel pic = new JLabel();
         c.gridx=1;
         c.gridy=0;
@@ -753,13 +664,6 @@ public class Planner
         
         main.setBackground(Color.WHITE);
         
-        
-        
-     
-        
-        
-        
-              
         /*main */
         frame.setJMenuBar(menubar);
         frame.getContentPane().add(main);
@@ -767,27 +671,16 @@ public class Planner
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(false);
         frame.setLocationRelativeTo(null);
-        
-        
-        
+                       
     }
-    
-   
- 
-      
+              
     public static void main(String args[]){
-    
-        /*MyConnection c = new MyConnection("anupta", "1007108");
-    ArrayList<String> s = c.getAllCourses();
-    for(String a : s){
-        System.out.println(a);
-    }*/
+
         new Planner();
-    
+        // calling the GUI
     
      
      }
-   
-      
+         
 }
 
