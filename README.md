@@ -7,6 +7,8 @@ How to run the Student Planner on BlueJ:
   6. Minimize and go back to the login screen and type in "anupta" and "1007108" as the username and password respectively.
   7. GUI main menu will appear after hitting submit.
 
+Note: You will need to create a path for the jar file that I provided.
+
 On any other editor/compiler: Save all the files in one folder and compile Planner.java as you would any other java file.
 
 To connect to the SQL Database: 
